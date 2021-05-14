@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EGUI Recipe Planner</title>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+     <a class="header-start" asp-area="" asp-controller="Home" asp-action="Index">Start</a>
+    </header>
+        <main role="main">
+            @RenderBody()
+        </main>
+    @* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /> *@
+    @* <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@model eguiplanner_web_app.Models.Recipe
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var RecipeToView = Convert.ToInt32(ViewData["RecipeToView"]);
+    var RecipesList = ViewData["RecipesList"] as List<Recipe>;
+}
+
+<div class="container-RecipeDetails" id="style-9">
+
+        @{
+            if (!String.IsNullOrEmpty(RecipesList[RecipeToView].Title))
+            {
+                <h3>How to cook @RecipesList[RecipeToView].Title ?</h3>
+            }
+        }
+    <div>
+        @{
+            if (!String.IsNullOrEmpty(RecipesList[RecipeToView].Description))
+            {
+                <p>@RecipesList[RecipeToView].Description</p>
+            }
+        }
+    </div>
+
+    <h3>You will need:</h3>
+    <div class="viewRec-ings">
+            @{
+                if (RecipesList[RecipeToView].Ingredients.Count != 0)
+                {
+                    for (int i = 0; i < RecipesList[RecipeToView].Ingredients.Count; i++)
+                    {
+                        <div class="viewRec-anIng">
+                            <p>@RecipesList[RecipeToView].Ingredients[i].Title 
+                               @RecipesList[RecipeToView].Ingredients[i].Amount 
+                               @RecipesList[RecipeToView].Ingredients[i].Unit</p>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <a asp-action="Index" class="back-btn">&larr;</a>
+</div>

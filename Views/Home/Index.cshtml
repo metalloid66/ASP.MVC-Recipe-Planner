@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "EGUI RECIPE PLANNER";
+}
+
+<div class="container-1">
+
+    <div class="container-create-recipe">
+                <a asp-controller="Recipe" asp-action="Index" class="create-btn">CREATE</a>
+    </div> 
+                <div class="container-load-recipe">
+                <a class="load-btn" href="@Url.Action("Load","Recipe", new {id = 0})" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Load file from the server">Load</a>
+                 </div>
+                
+</div>

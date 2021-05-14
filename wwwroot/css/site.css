@@ -1,0 +1,434 @@
+﻿/* Common */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px; /* Uneeded margins delete later */
+  padding-bottom: 70px; /* Uneeded margins delete later */
+  width: 85%;
+  height: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: #f1d8d4 solid 3px;
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: black;
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.back-btn {
+  font-size: 30px;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+}
+/* _Layout  */
+header {
+  width: 100%;
+  background-color: #33312d;
+}
+.header-start {
+  text-decoration: none;
+  font-size: 30px;
+  color: whitesmoke;
+  margin-left: 1%;
+}
+.header-start :hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* _Index */
+.container-1 {
+  /* Container for _Index*/
+  width: 100%;
+  display: flex;
+}
+.container-create-recipe {
+  width: 50%;
+  background-image: url(../imgs/bg-create.jpg);
+  height: 90vh;
+  background-size: cover;
+  filter: brightness(0.5);
+  transition: all 0.2s;
+}
+.container-create-recipe:hover {
+  filter: brightness(1);
+}
+.create-btn {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  top: 40%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+.create-btn:hover {
+  color: #fff !important;
+}
+.container-load-recipe {
+  background-image: url(../imgs/bg-load.jpg);
+  width: 50%;
+  background-color: rgb(0, 183, 255);
+  background-size: cover;
+  height: 90vh;
+  filter: brightness(0.5);
+  transition: all 0.2s;
+}
+.container-load-recipe:hover {
+  filter: brightness(1);
+}
+.load-btn {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  top: 40%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+.load-btn:hover {
+  color: #fff !important;
+}
+
+/* Recipe/ Index */
+.container-noRecipe {
+  margin: 2%;
+  padding: 0 1% 1% 1%;
+  border: 1px solid black;
+}
+.indexCreate-btn {
+  text-decoration: none;
+  background: brown;
+  padding: 1%;
+}
+.container-loaded {
+  margin: 2%;
+  padding: 0 1% 1% 1%;
+}
+.indexAction-btns {
+  display: flex;
+  justify-content: space-around;
+  padding: 1% 1% 3% 1%;
+}
+.indexSave-btn {
+  background-color: #cc200e;
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+}
+.indexLoad-btn {
+  background-color: #258cec;
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+}
+.indexNewRecipe {
+  background-color: rgb(26, 189, 21);
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+}
+
+.indexShop-btn {
+  background-color: #e2d95f;
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+}
+.container-recipeList {
+  overflow-y: auto;
+  height: 65vh;
+}
+.container-aRecipe {
+  background-color: orange;
+  padding: 1%;
+  display: flex;
+  align-items: center;
+}
+
+.indexRecipe-Title {
+  color: whitesmoke;
+  font-size: 25px;
+  width: 20%;
+}
+.indexRecipe-btns-form {
+  display: inline;
+}
+.indexRecipe-btns {
+  display: inline;
+}
+.indexRecipe-btns-edit {
+  border: none;
+  color: white;
+  background-color: hsl(204, 64%, 44%);
+  font-size: 25px;
+  cursor: pointer;
+}
+.indexRecipe-btns-details {
+  border: none;
+  color: white;
+  background-color: goldenrod;
+  font-size: 25px;
+  cursor: pointer;
+}
+.indexRecipe-btns-remove {
+  border: none;
+  color: white;
+  background-color: #e74c3c;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* RecipeDetails */
+.container-RecipeDetails {
+  margin: 2%;
+  padding: 0 1% 1% 1%;
+  border: 1px solid;
+  overflow-y: auto;
+  /* height: 85vh; */
+}
+
+/* Create */
+/* .container-create {
+  margin: 2%;
+  padding: 0 1% 1% 1%;
+} */
+.create-form {
+  overflow: auto;
+  height: 85vh;
+}
+.create-name {
+  height: 30px;
+  margin-bottom: 25px;
+  border: #e7803c29 solid 3px;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.create-des {
+  height: 200px;
+  margin-bottom: 25px;
+  border: #e7803c29 solid 3px;
+  resize: none;
+  width: 90%;
+  margin-left: 1%;
+}
+.create-btns {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1% 1% 3% 1%;
+}
+.create-save {
+  background-color: #cc200e;
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+  border: none;
+}
+.create-save:hover {
+  cursor: pointer;
+}
+.create-finish {
+  background-color: #258cec;
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+  border: none;
+  height: 100%;
+}
+.create-finish:hover {
+  cursor: pointer;
+}
+.create-addEditIngs {
+  background-color: rgb(26, 189, 21);
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+  border: none;
+}
+.create-ings-title {
+  margin: 2%;
+  margin-top: 1%;
+}
+.create-ings {
+  margin-left: 2%;
+  margin-bottom: 2%;
+  font-size: 18px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.create-ing {
+  border: 1px solid olive;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* newIng */
+.container-addIng {
+  margin: 2%;
+}
+.addIng-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.addIng-form input {
+  display: inline-block;
+  border: #e7803c29 solid 3px;
+  width: 25%;
+  height: 20px;
+  margin-right: 5%;
+}
+.addIng-add-btn {
+  background-color: rgb(26, 189, 21);
+  font-size: 15px;
+  color: white;
+}
+.addIng-add-btn:hover {
+  cursor: pointer;
+}
+.addIng-create-ings {
+  margin-bottom: 2%;
+  font-size: 18px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.addIng-create-ing {
+  border: 1px solid olive;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 40%;
+}
+.addIng-addAndRemove {
+  display: flex;
+  flex-direction: row;
+}
+.addIng-removeIng {
+  border: none;
+  color: white;
+  background-color: #e74c3c;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+.addIng-finish {
+  background-color: #258cec;
+  color: white;
+  padding: 1%;
+}
+
+/* Finalize */
+
+.container-Finalize {
+  margin: 2%;
+  border: 1px solid;
+}
+.Finalize-name {
+  margin: 2%;
+}
+.Finalize-des {
+  margin: 2%;
+}
+.Finalize-btns {
+  margin: 2%;
+}
+.Finalize-edit {
+  background-color: hsl(204, 64%, 44%);
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+  cursor: pointer;
+}
+.Finalize-submit {
+  background-color: #cc200e;
+  color: white;
+  font-size: 20px;
+  padding: 1%;
+  cursor: pointer;
+}
+
+/* ShoppingList*/
+.container-shopping {
+  overflow-y: scroll;
+  margin: 2%;
+  height: 85vh;
+}
+.shop-allRecipes,
+.shop-cookRecipes {
+  margin-bottom: 2%;
+}
+.shop-titleAndAdd,
+.shop-titleAndRemove {
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+}
+.shop-titleAndAdd p,
+.shop-titleAndRemove p {
+  font-size: 20px;
+  margin-left: 1%;
+  width: 20%;
+}
+.shop-titleAndAdd button,
+.shop-titleAndRemove button {
+  cursor: pointer;
+  background-color: rgb(26, 189, 21);
+  color: white;
+  font-size: 20px;
+  border: none;
+}
+.shop-titleAndRemove button {
+  background-color: #e74c3c;
+}
+
+/* scrollbar */
+#style-9::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+#style-9::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+
+.shop-ingToBuy {
+  border: 1px solid;
+  font-size: 15px;
+}
+
+#style-9::-webkit-scrollbar-thumb {
+  background-color: rgb(236, 84, 57);
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}

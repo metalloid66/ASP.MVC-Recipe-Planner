@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Recipes";
+    var RecipesList = ViewData["RecipesList"] as List<Recipe>;
+}
+<div>
+    @{
+        if (RecipesList.Count() == 0)
+        {
+            <div class="container-noRecipe">
+                <h1>Recipe List</h1>
+                <h3>No Recipes to show. Please create some recipes.</h3>
+                    <a class="indexCreate-btn" href="@Url.Action("Create","Recipe")">CREATE</a>
+           </div>
+        }
+        else
+{
+            <div class="container-loaded">
+                <div class="indexAction-btns" role="group" aria-label="Action Buttons">
+                            <a class="indexNewRecipe" href="@Url.Action("Create","Recipe")">New Recipe</a>
+                            <a class="indexLoad-btn" href="@Url.Action("Load","Recipe", new {id = 0})" >Load Recipes</a>
+                            <a class="indexSave-btn" href="@Url.Action("Save","Recipe", new {id = 0})" >Save Recipes</a>
+                            <a asp-controller="Recipe" asp-action="Shop" class="indexShop-btn">Shop Ingredients</a>
+                </div>
+                    <div class="container-recipeList" id="style-9">
+                            @{
+                                if (RecipesList.Count != 0)
+                                {
+                                    for (int i = 0; i < RecipesList.Count; i++)
+                                    {
+                                        <div class="container-aRecipe">
+                                            <p class="indexRecipe-Title">@RecipesList[i].Title</p>
+                                                    @using (Html.BeginForm("handleRecBtns", "Recipe", new { id = @i }, FormMethod.Post,false,new { @class="indexRecipe-btns-form" }))
+                                                    {
+                                                        <div class="indexRecipe-btns">
+                                                            <button type="submit" name="detailsValue" value="@i" class="indexRecipe-btns-details">
+                                                                 Details
+                                                            </button>
+                                                            <button type="submit" name="modfiyValue" value="@i" class="indexRecipe-btns-edit">
+                                                                 Edit
+                                                            </button>
+                                                            <button type="submit" name="deleteValue" value="@i" class="indexRecipe-btns-remove">
+                                                                 Remove
+                                                            </button>
+                                                        </div>
+                                                    }
+                                        </div>
+                                    }
+                                }
+                            }
+                    </div>
+                </div>
+        }
+    }
+    </div>

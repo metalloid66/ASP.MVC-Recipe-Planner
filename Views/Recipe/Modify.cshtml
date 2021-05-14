@@ -1,0 +1,74 @@
+﻿@model eguiplanner_web_app.Models.Recipe
+
+@{
+    ViewData["Title"] = "Modify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var RecipeToModify = Convert.ToInt32(ViewData["RecipeToEdit"]);
+    var RecipesList = ViewData["RecipesList"] as List<Recipe>;
+}
+<div class="container-create">
+    @using (Html.BeginForm("EditRecInfo", "Recipe", new { id = @RecipeToModify }))
+    {
+        <div class="create-name-container">
+            @{
+                if (!String.IsNullOrEmpty(RecipesList[RecipeToModify].Title))
+                {
+                    <input name="Title" class="create-name" placeholder="Recipe Name" value="@RecipesList[RecipeToModify].Title" required />
+                }
+                else
+                {
+                    <input name="Title" class="create-name" placeholder="Recipe name" required />
+                }
+            }
+        </div>
+        <div class="create-des-container">
+            @{
+                if (!String.IsNullOrEmpty(RecipesList[RecipeToModify].Description))
+                {
+                    <textarea name="Description" class="create-des" placeholder="Description" required>@RecipesList[RecipeToModify].Description</textarea>
+                }
+                else
+                {
+                    <textarea name="Description" class="create-des" placeholder="Description" required></textarea>
+                }
+            }
+        </div>
+    }
+
+        <h2 class="create-ings-title">Ingredients</h2>
+        <div class="create-ings">
+            @{
+                if (RecipesList[RecipeToModify].Ingredients.Count != 0)
+                {
+                    for (int i = 0; i < RecipesList[RecipeToModify].Ingredients.Count; i++)
+                    {
+                            <p class="create-ing">#@(i+1) @RecipesList[RecipeToModify].Ingredients[i].Title
+                            @RecipesList[RecipeToModify].Ingredients[i].Amount
+                            @RecipesList[RecipeToModify].Ingredients[i].Unit </p>
+                    }
+                }
+
+            }
+        </div>
+            <div class="create-btns">
+                <input type="submit" value="SAVE CHANGES" class="create-save"  title="Store Recipe Details" />
+                <a class="create-addEditIngs" href=@Url.Action("ModifyIngredients", "Recipe", new { Id = @RecipeToModify })>EDIT/ADD INGREDIENTS</a>
+            <div class="create-finish">
+                @{
+                    if (String.IsNullOrEmpty(RecipesList[RecipeToModify].Description) || String.IsNullOrEmpty(RecipesList[RecipeToModify].Title) || !RecipesList[RecipeToModify].Ingredients.Any())
+                    {
+                        <a class="create-finish">
+                            FINISH
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Recipe" asp-action="backFunc" type="button" class="create-finish">FINISH</a>
+                    }
+                }
+            </div>
+        </div>
+    <div>
+        <a asp-controller="Recipe" asp-action="backFunc" class="back-btn">&#8592;</a>
+    </div>
+</div>

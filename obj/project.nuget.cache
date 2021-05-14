@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9ExvXFVzJBeA2ttaTl0sBN+GuPBYAB7uOvAmmhdPskhCKza65AXeOKafhKR0DwA9nGE4Axx4jdf00+GytXJq+Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\moham\\Desktop\\Sem6\\eguiplanner-web-app\\eguiplanner-web-app.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\moham\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

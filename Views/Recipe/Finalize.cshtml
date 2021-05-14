@@ -1,0 +1,48 @@
+﻿@model eguiplanner_web_app.Models.Recipe
+
+@{
+    ViewData["Title"] = "Finalize";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var ingredientsList = ViewData["Ingredients"] as List<Ingredient>;
+    var recipeName = ViewData["RecipeName"] as string;
+    var recipeDescription = ViewData["RecipeDescription"] as string;
+}
+
+<div class="container-Finalize">
+    <div class="Finalize-name">
+        @{
+            if (!String.IsNullOrEmpty(recipeName))
+            {
+                               <h3>@recipeName</h3>
+            }
+        }
+    </div>
+    <div class="Finalize-des">
+        @{
+            if (!String.IsNullOrEmpty(recipeDescription))
+            {
+                                <p>@recipeDescription</p>
+            }
+        }
+    </div>
+
+        <h3 class="create-ings-title">Ingredients</h3>
+        <div class="create-ings">
+            @{
+                if (ingredientsList.Count() != 0)
+                {
+                    for (int i = 0; i < ingredientsList.Count; i++)
+                    {
+                            <p class="create-ing">#@(i+1) @ingredientsList[i].Title @ingredientsList[i].Amount @ingredientsList[i].Unit</p>
+                    }
+                }
+            }
+        </div>
+
+    <div class="Finalize-btns">
+            <a asp-action="Create" class="Finalize-edit">EDIT</a>
+            <a asp-controller="Recipe" asp-action="addRec" class="Finalize-submit">
+                SUBMIT
+            </a>
+    </div>
+</div>

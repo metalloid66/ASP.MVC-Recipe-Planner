@@ -1,0 +1,43 @@
+﻿@model eguiplanner_web_app.Models.Recipe
+
+@{
+    ViewData["Title"] = "Modify Ingredients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var ingredientsList = ViewData["IngredientsToEdit"] as List<Ingredient>;
+    var ID = ViewData["ID"];
+}
+
+<div class="container-addIng">
+    @using (Html.BeginForm("editIng", "Recipe", new { id = @ID },FormMethod.Post,false,new { @class="addIng-form"}))
+    {
+     <input type="text" name="ingredientName" class="form-control" placeholder="Ingredient Name" required>
+     <input type="number" min="0.01" step="0.01" name="ingredientAmount" class="form-control" placeholder="Amount" required>
+     <input type="text" name="ingredientUnit" class="form-control" placeholder="Unit" required>
+     <input type="submit" value="Add"/>
+    }
+        <h2>Ingredients</h2>
+        <div class="addIng-create-ings">
+            @{
+                if (ingredientsList.Count != 0)
+                {
+                    for (int i = 0; i < ingredientsList.Count; i++)
+                    {
+                        <div class="addIng-addAndRemove">
+                            <p class="addIng-create-ing">@(i+1) @ingredientsList[i].Title
+                            @ingredientsList[i].Amount
+                            @ingredientsList[i].Unit </p>
+                            @using (Html.BeginForm("editDeleteIng", "Recipe", new { id = @ID }))
+                            {
+                                    <button type="submit" class="addIng-removeIng" name="valueToDelete" value="@i">
+                                         -
+                                    </button>
+                            }
+                        </div>
+                    }
+                }
+            }
+        </div>
+    <div>
+        <a class="addIng-finish" href="@Url.Action("Edit","Recipe", new { Id = @ID })">FINISH</a>
+    </div>
+</div>

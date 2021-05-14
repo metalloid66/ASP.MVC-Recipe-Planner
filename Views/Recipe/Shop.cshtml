@@ -1,0 +1,71 @@
+﻿@model eguiplanner_web_app.Models.Recipe
+@{
+    ViewData["Title"] = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var RecipesList = ViewData["RecipesList"] as List<Recipe>;
+    var AddedRecipes = ViewData["AddedRecipes"] as List<Recipe>;
+    var ingredientsToAdd = ViewData["ingsToAdd"] as List<Ingredient>;
+}
+<div class="container-shopping" id="style-9">
+            <h2>All Recipes</h2>
+                <div class="shop-allRecipes">
+                    @{
+                        if (RecipesList.Count != 0)
+                        {
+                            for (int i = 0; i < RecipesList.Count; i++)
+                            {
+                                <div class="shop-titleAndAdd">
+                                    <p>#@(i + 1) @RecipesList[i].Title </p>
+                                    @using (Html.BeginForm("addRecToShop", "Recipe", new { id = @i}))
+                                    {
+                                            <button type="submit" name="valueToAddRecipe" value="@i">
+                                                 Add
+                                            </button>
+                                    }
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+
+                <h2>Recipes To Cook</h2>
+                <div class="shop-cookRecipes">
+                    @{
+                        if (AddedRecipes.Count != 0)
+                        {
+                            for (int i = 0; i < AddedRecipes.Count; i++)
+                            {
+                                <div class="shop-titleAndRemove">
+                                    <p>#@(i + 1) @AddedRecipes[i].Title</p>
+                                    @using (Html.BeginForm("removeRecFromShop", "Recipe", new { id = @i }))
+                                    {
+                                            <button type="submit" name="valueToDeleteRecipe" value="@i">
+                                                Remove
+                                            </button>
+                                    }
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+
+                <h2 class="text-center">Ingredients to buy</h2>
+                <div class="shop-ingsToBuy">
+                    @{
+                        if (ingredientsToAdd.Count != 0)
+                        {
+                            for (int i = 0; i < ingredientsToAdd.Count; i++)
+                            {
+                                <p class="shop-ingToBuy">
+                                    #@(i + 1) @ingredientsToAdd[i].Title 
+                                    @Math.Round(ingredientsToAdd[i].Amount, 2)
+                                    @ingredientsToAdd[i].Unit
+                                </p>
+                            }
+                         }
+                      }
+                </div>
+</div>
+    <div>
+        <a class="back-btn" asp-controller="Recipe" asp-action="backFunc" >&#8592;</a>
+    </div>
